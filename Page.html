@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Traduzione</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<style media="screen">
+body{
+  margin: 0 0 0 0;
+}
+.container{
+  width: 80%;
+  height: 100%;
+  margin-left: 10%;
+  background-color:white;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+}
+</style>
+  </head>
+  <body><div class="container">
+    <p id="consegna"></p>
+    <p id="phrase"></p></div>
+    <script type="text/javascript">
+      var phrases = [{'phrase':'Romulus et Remus Rheae Silviae filios erant', 'solution': 'Romolo e Remo erano figli di Rea Silvia', 'suggerimento':'Questa frase potrebbe aver a che fare con i fondatori di Roma...'},{'phrase':'Occecat animos fortuna','solution':'La Fortuna acceca gli animi','suggerimento':'Certe volte la fortuna non è sempre una buona cosa'},{'phrase':'Magister pueros debet docere et interrogare','solution':'Il maestro deve insegnare ed interrogare gli studenti','suggerimento':'le interrogazioni sono una parte importante e stressante della vita di uno studente'},{
+        'phrase':'Agricola, cum florem oleae videt, putat se bacam quoque visurum esse', 'solution':'Il contadino quando vede il fiore dell\'olivo pensa che vedrà anche il frutto', 'suggerimento': 'non sempre un fiore si trasforma in frutto'},
+        {
+          'phrase':'Avari saepe pecuniam amant magis quam vitam', 'solution':'Spesso gli avari amano più il denaro della vita', 'suggerimento':'un consiglio agli avari, il denaro si crea, il tempo no'
+        }];
+      phrases.forEach(phrase => {
+        var container = document.querySelector('.container');
+        let par = document.createElement('p');
+        par.id= 'inlineBlock';
+        let sugg = document.createElement('p');
+        sugg.innerText = phrase.suggerimento;
+        sugg.style.display = 'none';
+        let input = document.createElement('input');
+        input.required = true;
+        let res = document.createElement('p');
+        let btn = document.createElement('button');
+        let btn2 = document.createElement('button');
+        btn2.innerText = 'mostra un suggerimento';
+        btn2.onclick =()=>{
+          btn2.style.display= 'none';
+          sugg.style.display = 'block';
+        }
+        btn.onclick = () => {if (phrase.solution == input.value){
+          input.style.color = 'green';
+          res.innerText='La soluzione è esatta, complimenti!';
+        }
+        else {
+          input.style.color = 'red';
+          res.innerText='Sbagliato, la soluzione è '+phrase.solution;
+
+        }
+      btn.disabled = true;
+    }
+        btn.innerText = 'invia';
+        input.placeholder = 'inserisci la tua traduzione'
+        par.innerText = phrase.phrase;
+        container.appendChild(par);
+        container.appendChild(input);
+        container.appendChild(btn);
+        container.appendChild(sugg);
+        container.appendChild(btn2);
+        container.appendChild(res);
+      });
+    </script>
+  </body>
+</html>
