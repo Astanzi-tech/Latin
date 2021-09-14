@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="QuizStyle.css">
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .hidden{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <img src="" alt="logo">
+    </div>
+    <div class="container">
+      <p id="Title">Benvenuto in questo quiz</p>
+      
+    </div>
+    <button type="button" id="Start" class="Big-button Start" onclick="GenerateQuiz()" name="">Inizia</button>
+      <button type="button"id="Next" class="Big-button Next" onclick="generateQuestion()" style="display:none">Prossimo</button>
+    <div id="container">
+    </div>
+
+    
+    <script src="questions.js"></script>
+    <script src="quiz.js"></script>
+  </body>
+</html>
